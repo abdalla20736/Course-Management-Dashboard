@@ -1,59 +1,103 @@
-# CourseManagementDashboard
+# Course Management Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.1.
+A lightweight Angular dashboard for managing courses, built with Angular 21 and a local mock API using `json-server`.
 
-## Development server
+## Screenshots
+![Course list view](screenshots/course-list.png)
+![Course list view](screenshots/course-view.png)
+![Course list view](screenshots/course-form.png)
 
-To start a local development server, run:
+## Project overview
 
-```bash
-ng serve
-```
+This application provides a course management UI with features such as:
+- course listing and filtering
+- course creation and editing
+- course details viewing
+- mock backend data served from a local JSON file
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The project uses the following libraries:
+- Angular 21.2.x
+- `ngx-pagination`
+- `ngx-spinner`
+- `ngx-toastr`
+- `json-server` for the mock REST API
 
-## Code scaffolding
+## Repository structure
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Key folders and files:
+- `src/app/features/courses/` - course feature module and pages
+- `src/app/core/` - shared application core services, guards, interceptors, and layout components
+- `src/app/shared/` - reusable shared components such as dialogs and not-found page
+- `db.json` - local mock API data source
+- `package.json` - project scripts and dependencies
 
-```bash
-ng generate component component-name
-```
+## Prerequisites
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Install Node.js and npm. This repository uses npm and Angular CLI.
 
-```bash
-ng generate --help
-```
+## Setup
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+From the repository root:
 
 ```bash
-ng e2e
+npm install
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Run the mock API
 
-## Additional Resources
+The mock backend runs with `json-server` and exposes the data in `db.json`.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Start the API server:
+
+```bash
+npm run api
+```
+
+Open the API endpoint in your browser or API client:
+
+- `http://localhost:3000/courses`
+
+This serves the courses collection used by the Angular app.
+
+## Run the Angular application
+
+Start the Angular development server:
+
+```bash
+npm start
+```
+
+Then open:
+
+- `http://localhost:4200/`
+
+The app will reload automatically when you modify source files.
+
+## Recommended workflow
+
+1. Open two terminal windows.
+2. Run `npm run api` in one terminal to start the mock backend on port `3000`.
+3. Run `npm start` in the other terminal to start the Angular app on port `4200`.
+4. Use the app UI to view, add, edit, or delete courses.
+
+## Available scripts
+
+- `npm start` - launches the Angular dev server
+- `npm run api` - starts `json-server` with `db.json` on `http://localhost:3000`
+- `npm run build` - builds the app for production
+- `npm run watch` - builds the app in watch mode for development
+- `npm test` - runs unit tests
+
+## Mock data
+
+The mock API data is stored in `db.json` and currently includes a `courses` collection with sample course objects.
+
+## Notes
+
+- The app expects the mock API to be running when interacting with course CRUD operations.
+- If ports `4200` or `3000` are already in use, change them in the Angular CLI and `json-server` command as needed.
+
+## Useful links
+
+- Angular: https://angular.dev/
+- json-server: https://github.com/typicode/json-server
